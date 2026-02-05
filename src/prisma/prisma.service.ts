@@ -10,7 +10,7 @@ export class PrismaService
 {
   constructor(private readonly config: ConfigService) {
     const adapter = new PrismaPg({
-      connectionString: config.getOrThrow<string>('POSTGRES_URI'),
+      connectionString: config.getOrThrow<string>('DATABASE_URI'),
     });
     super({ adapter });
   }
