@@ -10,11 +10,11 @@ export const getMailerConfig = (config: ConfigService): MailerOptions => ({
     auth: isDev(config)
       ? undefined
       : {
-          user: config.getOrThrow<string>('MAIL_LOGIN'),
+          user: config.getOrThrow<string>('MAIL_USER'),
           pass: config.getOrThrow<string>('MAIL_PASSWORD'),
         },
   },
   defaults: {
-    from: `"Nest Auth" ${config.getOrThrow<string>('MAIL_LOGIN')}`,
+    from: `"Nest Auth" ${config.getOrThrow<string>('MAIL_USER')}`,
   },
 });
