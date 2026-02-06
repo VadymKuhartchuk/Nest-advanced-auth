@@ -18,7 +18,7 @@ import { ConfigService } from '@nestjs/config';
 import { RefreshJwtGuard } from './guards/refresh-jwt.guard';
 import { Auth } from './decorators/auth.decorator';
 import { AuthGuard } from '@nestjs/passport';
-import { Recaptcha } from '@nestlab/google-recaptcha';
+// import { Recaptcha } from '@nestlab/google-recaptcha';
 
 @Controller('auth')
 export class AuthController {
@@ -27,7 +27,7 @@ export class AuthController {
     private readonly config: ConfigService,
   ) {}
 
-  @Recaptcha()
+  // @Recaptcha()
   @Post('register')
   async register(@Body() dto: RegisterDto) {
     await this.authService.register(dto);
@@ -37,7 +37,7 @@ export class AuthController {
     };
   }
 
-  @Recaptcha()
+  // @Recaptcha()
   @HttpCode(HttpStatus.OK)
   @Post('login')
   async login(
